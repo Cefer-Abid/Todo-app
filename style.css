@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.img {
+  background-color: rgb(7, 235, 235);
+  height: 250px;
+  width: 100%;
+}
+
+.content {
+  width: 500px;
+  margin: auto;
+  margin-top: -200px;
+}
+.name-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-div span,
+a {
+  /*a teqini sil */
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  letter-spacing: 15px;
+  color: white;
+  user-select: none;
+  text-decoration: none;
+}
+
+.input-div {
+  margin-top: 40px;
+}
+
+.input,
+.task {
+  width: 500px;
+  height: auto;
+  border: white;
+  border-radius: 3px;
+  padding: 15px;
+  font-size: 17px;
+}
+
+.todo-list-ul {
+  list-style: none;
+  margin-top: 20px;
+  background-color: white;
+}
+.task,
+.footer {
+  /* background-color: white; */
+  border-bottom: 1px solid black;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 20px;
+  color: gray;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+    color: gray;
+}
+.btn:hover{
+    cursor: pointer;
+    color: black;
+}
+
+/* .task::before {
+    content: 'o';
+    margin-right: 10px;
+} */
+
+/* Added */
+.xet {
+  text-decoration: line-through;
+}
+
+.hidden {
+  display: none;
+}
+.blue{
+    color: blue;
+}
+
+
+/* Dark Mode */
+.dm-img {
+  background-color: rgb(4, 155, 155);
+}
+.dm-body {
+  background-color: black;
+}
+
+.dm-input,
+.dm-ul {
+  background-color: rgb(33, 33, 33);
+  color: white;
+}
+.dm-footer{
+  background-color: rgb(33, 33, 33);
+}
+.dm-btn:hover{
+  color: white;
+}
