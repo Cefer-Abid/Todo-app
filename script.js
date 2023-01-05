@@ -11,7 +11,8 @@ const iconEl = document.querySelector(".icon");
 const bodyEl = document.querySelector("body");
 const imgEl = document.querySelector(".img");
 const footerEl = document.querySelector(".footer");
-const btnEl = document.querySelector(".btn");
+const btnEl = document.querySelectorAll(".btn");
+// const btnShow = document.querySelectorAll(".show-btn button");
 
 // Function
 const capital = function (str) {
@@ -28,7 +29,6 @@ const toggle = function (element, cl) {
 // Starting
 let count = 0;
 btnAll.classList.add("blue");
-// const finish = toDo.classList.contains("xet");
 
 formEl.addEventListener("submit", function () {
   if (newTask.value) {
@@ -39,51 +39,64 @@ formEl.addEventListener("submit", function () {
     newTask.value = ``;
 
     toDo.addEventListener("click", function () {
-      toDo.classList.toggle("xet");
-      toDo.classList.contains("xet")
+      toDo.classList.toggle("finished");
+      toDo.classList.contains("finished")
         ? countf((count -= 1))
         : countf((count += 1));
     });
 
     countf((count += 1));
 
+    // btnShow.forEach((btn) => {
+    //   btn.addEventListener("click", function () {
+    //     btn.classList.remove("blue");
+    //   });
+    // });
+
     btnAll.addEventListener("click", function () {
       toDo.classList.remove("hidden");
+
       btnCompleted.classList.remove("blue");
       btnAll.classList.add("blue");
       btnActive.classList.remove("blue");
     });
 
     btnActive.addEventListener("click", function () {
-      toDo.classList.contains("xet")
+      toDo.classList.contains("finished")
         ? toDo.classList.add("hidden")
         : toDo.classList.remove("hidden");
+
       btnCompleted.classList.remove("blue");
       btnAll.classList.remove("blue");
       btnActive.classList.add("blue");
     });
 
     btnCompleted.addEventListener("click", function () {
-      toDo.classList.contains("xet")
+      toDo.classList.contains("finished")
         ? toDo.classList.remove("hidden")
         : toDo.classList.add("hidden");
+
       btnCompleted.classList.add("blue");
       btnAll.classList.remove("blue");
       btnActive.classList.remove("blue");
     });
 
     btnClear.addEventListener("click", function () {
-      toDo.classList.contains("xet") ? toDo.remove() : ``;
+      toDo.classList.contains("finished") ? toDo.remove() : ``;
     });
   }
 });
 
 iconEl.addEventListener("click", function () {
+  toggle(iconEl, "bx-sun");
+
   toggle(bodyEl, "dm-body");
   toggle(imgEl, "dm-img");
   toggle(ulEl, "dm-ul");
   toggle(newTask, "dm-input");
   toggle(footerEl, "dm-footer");
-  toggle(btnEl, "dm-btn");
-  btnEl.classList.add("dm-btn");
+  btnEl.forEach((btn) => {
+    btn.classList.toggle("dm-btn");
+  });
 });
+

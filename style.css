@@ -21,8 +21,8 @@
 }
 
 .name-div span,
-a {
-  /*a teqini sil */
+.icon {
+  
   font-family: sans-serif;
   font-weight: 600;
   font-size: 40px;
@@ -67,14 +67,14 @@ a {
 }
 
 .btn {
-    background-color: transparent;
-    border: none;
-    margin-right: 10px;
-    color: gray;
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
+  color: gray;
 }
-.btn:hover{
-    cursor: pointer;
-    color: black;
+.btn:hover {
+  cursor: pointer;
+  color: black;
 }
 
 /* .task::before {
@@ -83,17 +83,16 @@ a {
 } */
 
 /* Added */
-.xet {
+.finished {
   text-decoration: line-through;
 }
 
 .hidden {
   display: none;
 }
-.blue{
-    color: blue;
+.blue {
+  color: blue;
 }
-
 
 /* Dark Mode */
 .dm-img {
@@ -108,9 +107,11 @@ a {
   background-color: rgb(33, 33, 33);
   color: white;
 }
-.dm-footer{
+.dm-footer {
   background-color: rgb(33, 33, 33);
 }
-.dm-btn:hover{
+
+ .dm-btn:hover {            
   color: white;
 }
+

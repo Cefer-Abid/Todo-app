@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />                           Commentden Cixar ! --> 
   </head>
   <body>
     <!-- back-img -->
@@ -13,15 +17,19 @@
 
     <div class="content">
       <!-- Name-div -->
-      <div class="name-div"><span>TODO</span> <a href="#" class="icon">O</a></div>
+      <div class="name-div">
+        <span>TODO</span>
+        <i class="bx bx-moon icon"></i>
+      </div>
       <!-- Input-div -->
       <div class="input-div">
-        <form>
+        <form class="new-todo">
           <input type="text" class="input" />
         </form>
       </div>
       <!-- TO DO -->
-      <ul class="todo-list-ul"></ul>
+      <!-- <ul class="todo-list-ul"></ul>      ul yerine asagidaki div`i verdim--> 
+      <div class="todo-items"></div>
       <div class="footer">
         <div class="count-task">0 items left</div>
         <div class="show-btn">
@@ -33,6 +41,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="newScript.js"></script>
   </body>
 </html>
