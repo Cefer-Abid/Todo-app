@@ -5,9 +5,25 @@ const formInputElement = document.querySelector(".new-todo");
 const todoItemsElement = document.querySelector(".todo-items");
 const todoItemInfo = document.querySelector(".footer");
 const countTodo = document.querySelector(".count-task");
+const btnAll = document.querySelector(".btn-all");
+const btnActive = document.querySelector(".btn-active");
+const btnCompleted = document.querySelector(".btn-completed");
 
 let todos = [];
 let count = 0;
+btnAll.classList.add("active");
+
+if (localStorage.getItem("todos")) {
+  todos = JSON.parse(localStorage.getItem("todos"));
+  count = todos.length;
+  countTodo.textContent = `${count} items left`;
+}
+
+// Function
+const capitalCase = function (str) {
+  const arr = [str];
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+};
 
 formInputElement.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -18,12 +34,13 @@ formInputElement.addEventListener("submit", function (e) {
   countTodo.textContent = `${(count += 1)} items left`;
 
   const todoObj = {
-    title: inputEl.value,
+    title: capitalCase(inputEl.value),
     checked: false,
   };
-
   todos.unshift(todoObj);
+  localStorage.setItem("todos", JSON.stringify(todos));
   updateUi(todos);
+  console.log(...todos);
 });
 
 const updateUi = (todos) => {
@@ -31,14 +48,13 @@ const updateUi = (todos) => {
   todos.forEach((todo) => {
     const todoItemStr = `
     <div class="todo-item">
-           <div class="check">
-             <div class="check-mark">
-             </div>
-           </div>
-           <div class="todo-text ${todo.checked ? "todo-checked" : ""}">${
-      todo.title
-    }</div>
-         </div> `;
+      <div class="check">
+         <div class="check-mark"></div>
+      </div>
+      <div class="todo-text ${todo.checked ? "todo-checked" : ""}">
+      ${todo.title}
+      </div>
+    </div> `;
 
     inputEl.value = ``;
     todoItemsElement.insertAdjacentHTML("beforeend", todoItemStr);
@@ -78,8 +94,14 @@ todoItemInfo.addEventListener("click", function (e) {
     const filterCompleted = todos.filter((todo) => todo.checked === true);
     updateUi(filterCompleted);
   } else if (todoTargetTextContent === "Clear Completed") {
+    // New
+    // const removeLocal = todos.filter((todo) => todo.checked === true);
+    // todos = removeLocal;
+    // localStorage.removeItem(todos);
+
     const filterCompleted = todos.filter((todo) => !todo.checked);
     todos = filterCompleted;
     updateUi(todos);
   }
 });
+

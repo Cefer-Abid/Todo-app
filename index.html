@@ -4,41 +4,100 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Jost:wght@400;700&family=Kumbh+Sans:wght@400;700&family=Nunito+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,400;0,800;1,100;1,500&family=Rubik:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
-    />                           Commentden Cixar ! --> 
+    />
+    <link rel="stylesheet" href="mainStyle.css" />
+
+    <title>To Do List</title>
   </head>
   <body>
-    <!-- back-img -->
-    <div class="img"></div>
+    <div class="header">
+      <img src="images/bg-desktop-light.jpg" alt="" class="header__img" />
+    </div>
 
     <div class="content">
-      <!-- Name-div -->
-      <div class="name-div">
-        <span>TODO</span>
-        <i class="bx bx-moon icon"></i>
-      </div>
-      <!-- Input-div -->
-      <div class="input-div">
-        <form class="new-todo">
-          <input type="text" class="input" />
-        </form>
-      </div>
-      <!-- TO DO -->
-      <!-- <ul class="todo-list-ul"></ul>      ul yerine asagidaki div`i verdim--> 
-      <div class="todo-items"></div>
-      <div class="footer">
-        <div class="count-task">0 items left</div>
-        <div class="show-btn">
-          <button class="btn btn-all">All</button>
-          <button class="btn btn-active">Active</button>
-          <button class="btn btn-completed">Completed</button>
+      <section class="section--content__header">
+        <div class="content__header">
+          <span class="header--title">TODO</span>
+          <img class="bx bx-moon icon icon--moon" src="images/icon-moon.svg" />
         </div>
-        <div><button class="btn btn-clear">Clear Completed</button></div>
+
+        <form class="search-field">
+          <input type="checkbox" class="icon" />
+          <input type="text" class="search-input" />
+        </form>
+      </section>
+
+      <section class="section--content__hero">
+        <ul class="todo--list">
+          <!-- --------------------------------------------------- -->
+          <li class="todo__item">
+            <div class="todo-main-inside">
+              <input type="checkbox" class="todo__check-icon icon" />
+              <span class="todo__title">10 minutes meditation</span>
+            </div>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              class="todo__delete-icon icon"
+            >
+              <path
+                fill="#494C6B"
+                fill-rule="evenodd"
+                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+              />
+            </svg>
+          </li>
+
+          <li class="todo__item">
+            <div class="todo-main-inside">
+              <input type="checkbox" class="todo__check-icon icon" />
+              <span class="todo__title">10 minutes meditation</span>
+            </div>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              class="todo__delete-icon icon"
+            >
+              <path
+                fill="#494C6B"
+                fill-rule="evenodd"
+                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+              />
+            </svg>
+          </li>
+          <!-- --------------------------------------------------- -->
+        </ul>
+        <div class="footer">
+          <span class="info--todo-list">0 items left</span>
+          <div class="control-buttons">
+            <span class="btn btn-all actived--control-btn">All</span>
+            <span class="btn btn-active">Active</span>
+            <span class="btn btn-completed">Completed</span>
+          </div>
+          <span class="btn btn-clear">Clear Completed</span>
+        </div>
+      </section>
+
+      <div class="control-buttons mobil-media__buttons">
+        <span class="btn btn-all actived--control-btn">All</span>
+        <span class="btn btn-active">Active</span>
+        <span class="btn btn-completed">Completed</span>
       </div>
+
+      <section class="container--footer">
+        <span class="container--footer-text">
+          Drag and drop to reorder list
+        </span>
+      </section>
     </div>
 
     <script src="newScript.js"></script>
