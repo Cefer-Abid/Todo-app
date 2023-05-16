@@ -27,7 +27,12 @@
         </div>
 
         <form class="search-field">
-          <input type="checkbox" class="icon" />
+          <div class="checkbox--border checkbox--border__input">
+            <div class="checkbox checkbox__input" data-checked="false">
+              <!-- prettier-ignore -->
+              <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+            </div>
+          </div>
           <input type="text" class="search-input" />
         </form>
       </section>
@@ -37,43 +42,33 @@
           <!-- --------------------------------------------------- -->
           <li class="todo__item">
             <div class="todo-main-inside">
-              <input type="checkbox" class="todo__check-icon icon" />
+              <div class="checkbox--border">
+                <div class="checkbox" data-checked="false">
+                  <!-- prettier-ignore -->
+                  <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+                </div>
+              </div>
               <span class="todo__title">10 minutes meditation</span>
             </div>
 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              class="todo__delete-icon icon"
-            >
-              <path
-                fill="#494C6B"
-                fill-rule="evenodd"
-                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
-              />
-            </svg>
+            <!-- prettier-ignore -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="todo__delete-icon icon"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
           </li>
-
           <li class="todo__item">
             <div class="todo-main-inside">
-              <input type="checkbox" class="todo__check-icon icon" />
+              <div class="checkbox--border">
+                <div class="checkbox" data-checked="false">
+                  <!-- prettier-ignore -->
+                  <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+                </div>
+              </div>
               <span class="todo__title">10 minutes meditation</span>
             </div>
 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              class="todo__delete-icon icon"
-            >
-              <path
-                fill="#494C6B"
-                fill-rule="evenodd"
-                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
-              />
-            </svg>
+            <!-- prettier-ignore -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="todo__delete-icon icon"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
           </li>
+
           <!-- --------------------------------------------------- -->
         </ul>
         <div class="footer">
@@ -100,6 +95,9 @@
       </section>
     </div>
 
-    <script src="newScript.js"></script>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg> -->
+    <!-- background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%); -->
+
+    <script type="module" src="script.js"></script>
   </body>
 </html>

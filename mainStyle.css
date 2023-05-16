@@ -95,6 +95,37 @@ body {
   color: #494c6b;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Check Icons   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.checkbox--border {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  background: #e3e4f1;
+  border-radius: 50%;
+  padding: 0.7px;
+  overflow: hidden;
+}
+
+.checkbox {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  /* background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%); */
+  background: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox__input {
+  width: 26px;
+}
+.checkbox--border__input {
+  padding: 0.7px 1.8px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~  Section Content Hero  ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .section--content__hero {
