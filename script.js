@@ -5,27 +5,35 @@ const content = document.querySelector(".content");
 content.addEventListener("click", function (e) {
   const el = e.target;
 
-  // Checkbox icon
+  // Toggle Checkbox icon
   if (el.closest(".checkbox")) {
     // Define to checked icon
-    let iconChecked = el.dataset.checked;
-    el.dataset.checked = iconChecked === "false" ? "true" : "false";
+    const checkboxEl = el.closest(".checkbox");
+    let iconChecked = checkboxEl.dataset.checked;
+    checkboxEl.dataset.checked = iconChecked === "false" ? "true" : "false";
 
     const borderEl = el.closest(".checkbox--border");
-    const checkboxIcon = el.firstChild.nextElementSibling;
+    const checkboxIcon = checkboxEl.firstElementChild;
 
-    // Turn on checkbox icon & checkbox style
+    // Turn on :
     if (iconChecked === "false") {
+      // Checkbox icon
       checkboxIcon.classList.remove("hidden");
+      // Checkbox style
       toggleIcon(borderEl, "transparent");
-      toggleIcon(el, "linear-gradient(135deg, #55ddff 0%, #c058f3 100%)");
+      toggleIcon(
+        checkboxEl,
+        "linear-gradient(135deg, #55ddff 0%, #c058f3 100%)"
+      );
     }
 
-    // Turn off checkbox icon & checkbox style
+    // Turn off :
     if (iconChecked === "true") {
+      // Checkbox icon
       checkboxIcon.classList.add("hidden");
+      // Checkbox style
       toggleIcon(borderEl, "#e3e4f1");
-      toggleIcon(el, "white");
+      toggleIcon(checkboxEl, "white");
     }
   }
 });
