@@ -29,7 +29,7 @@ body {
 
 .dark-mode {
   /* Dark Mode colors */
-  --body-bc: #000000;
+  --body-bc: #101010;
   --content-bc: #25273d;
   --input-color: #767992;
   --completed-todo-color: #767992;
@@ -55,6 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  cursor: pointer;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~  Section Content Header  ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -79,10 +80,6 @@ body {
   user-select: none;
   cursor: pointer;
 }
-
-/* .icon--moon {
-  height: 2.1rem;
-} */
 
 .search-field {
   display: flex;
@@ -142,6 +139,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 .checkbox:hover {
   border-color: #3a7bfd74;
@@ -207,6 +205,7 @@ body {
   line-height: 1.4rem;
   letter-spacing: -0.194444px;
   color: var(--footer-color);
+  user-select: none;
 }
 
 .info--todo-list {

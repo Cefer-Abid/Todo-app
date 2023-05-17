@@ -1,6 +1,7 @@
 import { toggleDarkMode } from "/helper.js";
 
 const content = document.querySelector(".content");
+const controlButton = document.querySelectorAll(".control-button");
 let darkMode = false;
 
 const getMode = function () {
@@ -40,5 +41,10 @@ content.addEventListener("click", function (e) {
       checkboxIcon.classList.add("hidden");
       checkboxEl.classList.remove("active-checkbox");
     }
+  }
+
+  if(el.closest(".control-button")){
+    controlButton.forEach(btn=>btn.classList.remove("actived--control-btn"))
+    el.closest(".control-button").classList.add("actived--control-btn")
   }
 });
