@@ -41,58 +41,31 @@
         <form class="search-field">
           <div class="checkbox checkbox__input" data-checked="false">
             <!-- prettier-ignore -->
-            <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+            <svg class="checkbox--icon checkbox--icon__input hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
           </div>
           <input type="text" class="search-input" />
         </form>
       </section>
 
       <section class="section--content__hero">
-        <ul class="todo--list">
-          <!-- --------------------------------------------------- -->
-          <li class="todo__item">
-            <div class="todo-main-inside">
-              <div class="checkbox" data-checked="false">
-                <!-- prettier-ignore -->
-                <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
-              </div>
-              <span class="todo__title">10 minutes meditation</span>
-            </div>
+        <!-- Todo List  -->
+        <ul class="todo--list"></ul>
 
-            <!-- prettier-ignore -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="todo__delete-icon icon"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
-          </li>
-          <li class="todo__item">
-            <div class="todo-main-inside">
-              <div class="checkbox" data-checked="false">
-                <!-- prettier-ignore -->
-                <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
-              </div>
-              <span class="todo__title">10 minutes meditation</span>
-            </div>
-
-            <!-- prettier-ignore -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="todo__delete-icon icon"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
-          </li>
-
-          <!-- --------------------------------------------------- -->
-        </ul>
         <div class="footer">
-          <span class="info--todo-list">0 items left</span>
+          <div class="info--todo-list">
+            <span class="count--todo-list">0</span>
+            <span>items left</span>
+          </div>
           <div class="control-buttons">
-            <span class="btn control-button btn-all actived--control-btn">All</span>
+            <span class="btn control-button btn-all active--control-btn"
+              >All</span
+            >
             <span class="btn control-button btn-active">Active</span>
             <span class="btn control-button btn-completed">Completed</span>
           </div>
-          <span class="btn btn-clear">Clear Completed</span>
+          <span class="btn btn-clear-all">Clear Completed</span>
         </div>
       </section>
-
-      <div class="control-buttons mobil-media__buttons">
-        <span class="btn control-button btn-all actived--control-btn">All</span>
-        <span class="btn control-button btn-active">Active</span>
-        <span class="btn control-button btn-completed">Completed</span>
-      </div>
 
       <section class="container--footer">
         <span class="container--footer-text">

@@ -50,6 +50,7 @@ body {
 }
 
 .content {
+  position: relative;
   width: 54rem;
   margin: -23rem auto;
   display: flex;
@@ -86,7 +87,8 @@ body {
   gap: 2.4rem;
   align-items: center;
 
-  padding: 2rem 2.4rem;
+  /* padding: 2rem 2.4rem; */
+  padding: 0.1rem 2.4rem;
   background: var(--content-bc);
   box-shadow: 0px 35px 50px -15px var(--content-shadow-color);
   border-radius: 5px;
@@ -94,6 +96,7 @@ body {
 }
 
 .search-input {
+  padding: 2rem 0;
   width: 100%;
   outline: none;
   border: none;
@@ -115,6 +118,7 @@ body {
   line-height: 1.8rem;
   letter-spacing: -0.25px;
   color: var(--todo-color);
+  text-transform: capitalize;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Check Icons   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -189,6 +193,11 @@ body {
   align-items: center;
 }
 
+.completed-todo{
+  text-decoration: line-through !important;
+  color: var(--input-color);
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~  Footer  ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .footer {
@@ -196,9 +205,7 @@ body {
   justify-content: space-between;
   padding: 16px 2.4rem;
   align-items: center;
-}
 
-.footer {
   font-family: inherit;
   font-weight: 400;
   font-size: 1.4rem;
@@ -210,12 +217,15 @@ body {
 
 .info--todo-list {
   cursor: pointer;
+  display: flex;
+  gap: 6px;
 }
 
 .control-buttons {
   display: flex;
   gap: 2rem;
   font-weight: 700;
+  background-color: var(--content-bc);
 }
 
 .mobil-media__buttons {
@@ -235,7 +245,7 @@ body {
   justify-content: center;
 }
 
-.actived--control-btn {
+.active--control-btn {
   color: #3a7cfd !important;
 }
 
@@ -275,7 +285,7 @@ body {
   }
 
   .todo__item,
-  .search-field {
+  .search-input {
     padding: 1.4rem 2rem;
   }
 
@@ -290,10 +300,25 @@ body {
   } */
 
   .control-buttons {
-    display: none !important;
+    position: absolute;
+    width: 32.7rem;
+    bottom: -6rem;
+    left: 0;
+
+    padding: 16px 2.4rem;
+    box-shadow: 0px 35px 50px -15px var(--content-shadow-color);
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
   }
 
-  .mobil-media__buttons {
-    display: flex !important;
+  .container--footer {
+    position: absolute;
+    width: 32.7rem;
+    left: 0;
+    bottom: -15rem;
+    display: flex;
+    justify-content: center;
   }
 }
