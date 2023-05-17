@@ -1,10 +1,23 @@
+import { toggleDarkMode } from "/helper.js";
+
 const content = document.querySelector(".content");
+let darkMode = false;
+
+const getMode = function () {
+  const darkMode = JSON.parse(localStorage.getItem("dark-mode"));
+  toggleDarkMode(darkMode);
+};
+getMode();
 
 content.addEventListener("click", function (e) {
   const el = e.target;
 
+  // Toggle Dark Mode
   if (el.closest(".icon-mode")) {
-    document.body.classList.toggle("dark-mode");
+    darkMode = !darkMode;
+    toggleDarkMode(darkMode);
+    // Send to Local Storage
+    localStorage.setItem("dark-mode", darkMode);
   }
 
   // Toggle Checkbox icon

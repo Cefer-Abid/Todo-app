@@ -80,9 +80,9 @@ body {
   cursor: pointer;
 }
 
-.icon--moon {
+/* .icon--moon {
   height: 2.1rem;
-}
+} */
 
 .search-field {
   display: flex;
