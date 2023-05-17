@@ -1,9 +1,11 @@
-import { hoverCheckboxBorder, toggleIcon } from "./helper.js";
-
 const content = document.querySelector(".content");
 
 content.addEventListener("click", function (e) {
   const el = e.target;
+
+  if (el.closest(".icon-mode")) {
+    document.body.classList.toggle("dark-mode");
+  }
 
   // Toggle Checkbox icon
   if (el.closest(".checkbox")) {
@@ -12,36 +14,18 @@ content.addEventListener("click", function (e) {
     let iconChecked = checkboxEl.dataset.checked;
     checkboxEl.dataset.checked = iconChecked === "false" ? "true" : "false";
 
-    const borderEl = el.closest(".checkbox--border");
     const checkboxIcon = checkboxEl.firstElementChild;
 
-    // Turn on :
+    // Turn on Checkbox icon style
     if (iconChecked === "false") {
-      // Checkbox icon
       checkboxIcon.classList.remove("hidden");
-      // Checkbox style
-      toggleIcon(borderEl, "transparent");
-      toggleIcon(
-        checkboxEl,
-        "linear-gradient(135deg, #55ddff 0%, #c058f3 100%)"
-      );
+      checkboxEl.classList.add("active-checkbox");
     }
 
-    // Turn off :
+    // Turn off Checkbox icon style
     if (iconChecked === "true") {
-      // Checkbox icon
       checkboxIcon.classList.add("hidden");
-      // Checkbox style
-      toggleIcon(borderEl, "#e3e4f1");
-      toggleIcon(checkboxEl, "white");
+      checkboxEl.classList.remove("active-checkbox");
     }
   }
-});
-
-// Checkbox border hover
-content.addEventListener("mouseout", function (e) {
-  hoverCheckboxBorder(e, "#e3e4f1");
-});
-content.addEventListener("mouseover", function (e) {
-  hoverCheckboxBorder(e, "linear-gradient(135deg, #55ddff 0%, #c058f3 100%)");
 });
