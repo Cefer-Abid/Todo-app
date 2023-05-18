@@ -4,11 +4,6 @@ const headerImgLightMode = document.querySelector(".header__img--light-mode");
 const headerImgDarkMode = document.querySelector(".header__img--dark-mode");
 const todoList = document.querySelector(".todo--list");
 const countTodoList = document.querySelector(".count--todo-list");
-const checkboxIconInput = document.querySelector(".checkbox--icon__input");
-const checkboxInput = document.querySelector(".checkbox__input");
-const searchInput = document.querySelector(".search-input");
-
-
 
 export const toggleDarkMode = function (darkMode) {
   if (darkMode) {
@@ -32,16 +27,18 @@ export const updateTodoList = function (data) {
   const str = data
     .map((todo, i) => {
       return `
-    <li class="todo__item">
-      <div class="todo-main-inside">
-        <div class="checkbox" data-checked="false" data-index="${i}">
-          <svg class="checkbox--icon hidden" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+      <li class="todo__item">
+        <div class="todo-main-inside">
+          <div class="checkbox ${todo.checked && "active-checkbox"}"
+             data-index="${i}">
+            <svg class="checkbox--icon ${todo.checked || "hidden"}" 
+             xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+          </div>
+          <span class="todo__title ${todo.checked && "completed-todo"}">
+            ${todo.title}</span>
         </div>
-        <span class="todo__title ${todo.checked && "completed-todo"}">
-          ${todo.title}</span>
-      </div>
-      <svg  class="todo__delete-icon icon" data-index="${i}" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
-    </li>
+        <svg  class="todo__delete-icon icon" data-index="${i}" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+      </li>
   `;
     })
     .join("");
@@ -77,14 +74,8 @@ export const displayCompletedTodos = function (data) {
 };
 
 export const displayClearedTodos = function (data) {
-  data = [];
+  // Delete data
+  data.splice(0, data.length);
   updateTodoList(data);
   setLocalStorage("data", data);
-};
-
-export const getInputStatus = function () {
-  checkboxInput.dataset.checked = "false";
-  checkboxInput.classList.remove("active-checkbox");
-  checkboxIconInput.classList.add("hidden");
-  searchInput.classList.toggle("completed-todo");
 };

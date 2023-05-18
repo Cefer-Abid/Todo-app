@@ -111,6 +111,13 @@ body {
   caret-color: #3a7cfd;
 }
 
+.search-input::placeholder {
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: -0.25px;
+  color: var(--input-color);
+}
+
 .todo__title {
   font-family: inherit;
   font-weight: 400;
@@ -133,6 +140,7 @@ body {
   overflow: hidden;
 } */
 
+.checkbox__input,
 .checkbox {
   height: 24px;
   width: 24px;
@@ -149,13 +157,31 @@ body {
   border-color: #3a7bfd74;
 }
 
-.checkbox__input {
-  width: 26px;
-}
-
 .active-checkbox {
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%) !important;
 }
+
+/* -----------------  Checkbox Input  ---------------- */
+
+.checkbox__input {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 26px;
+}
+
+.checkbox__input::after {
+  display: none;
+  content: url(images/icon-check.svg);
+  transform: translate(2%, 2%);
+}
+
+.checkbox__input:checked {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%) !important;
+}
+.checkbox__input:checked::after {
+  display: block;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~  Section Content Hero  ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .section--content__hero {
@@ -193,12 +219,12 @@ body {
   align-items: center;
 }
 
-.completed-todo{
+.completed-todo {
   text-decoration: line-through !important;
   color: var(--input-color);
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~  Footer  ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Footer  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .footer {
   display: flex;
@@ -294,10 +320,14 @@ body {
     font-size: 1.2rem;
   }
 
-  /* .todo__delete-icon {
-    height: 12px;
-    width: 12px;
-  } */
+  .checkbox__input {
+    width: 27px;
+  }
+
+  .search-field {
+    gap: 0;
+    padding-left: 1.9rem;
+  }
 
   .control-buttons {
     position: absolute;

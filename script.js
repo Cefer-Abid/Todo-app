@@ -1,5 +1,5 @@
 // prettier-ignore
-import { toggleDarkMode, updateTodoList, setLocalStorage, getLocalStorage, displayAllTodos, displayActiveTodos, displayCompletedTodos,displayClearedTodos,getInputStatus
+import { toggleDarkMode, updateTodoList, setLocalStorage, getLocalStorage, displayAllTodos, displayActiveTodos, displayCompletedTodos,displayClearedTodos,
 } from "/helper.js";
 
 const content = document.querySelector(".content");
@@ -7,11 +7,12 @@ const formEl = document.querySelector(".search-field");
 const searchInput = document.querySelector(".search-input");
 const checkboxInput = document.querySelector(".checkbox__input");
 const controlButton = document.querySelectorAll(".control-button");
-let darkMode, data;
+let darkMode, data, completedOnInput;
 
 const init = function () {
   // init value
   darkMode = false;
+  completedOnInput = false;
   data = [];
 
   // Get dark mode from local storage
@@ -26,6 +27,12 @@ const init = function () {
 };
 init();
 
+// UPDATE APP
+const updateApp = () => {
+  updateTodoList(data);
+  setLocalStorage("data", data);
+};
+
 content.addEventListener("click", function (e) {
   const el = e.target;
 
@@ -37,26 +44,26 @@ content.addEventListener("click", function (e) {
     setLocalStorage("dark-mode", darkMode);
   }
 
-  // Toggle Checkbox icon
+  // Complete todo item && Toggle Checkbox
   if (el.closest(".checkbox")) {
-    // Define to checked icon
-    const checkboxEl = el.closest(".checkbox");
-    let iconChecked = checkboxEl.dataset.checked;
-    checkboxEl.dataset.checked = iconChecked === "false" ? "true" : "false";
+    const completedIndex = +el.closest(".checkbox").dataset.index;
+    const todoItem = data[completedIndex];
 
-    const checkboxIcon = checkboxEl.firstElementChild;
+    // if todoItem is false, it is "input"  but todoItem is true, it is "todoItem"
+    if (!todoItem) return;
+    todoItem.checked = !todoItem.checked;
 
-    // Turn on Checkbox icon style
-    if (iconChecked === "false") {
-      checkboxIcon.classList.remove("hidden");
-      checkboxEl.classList.add("active-checkbox");
-    }
+    updateApp();
+  }
 
-    // Turn off Checkbox icon style
-    if (iconChecked === "true") {
-      checkboxIcon.classList.add("hidden");
-      checkboxEl.classList.remove("active-checkbox");
-    }
+  // Toggle completed todo on Input
+  const inputCheckbox = el.closest(".checkbox__input");
+  if (inputCheckbox) {
+    searchInput.classList.toggle("completed-todo");
+
+    // true: 1;  false: 0
+    completedOnInput = +inputCheckbox.dataset.checked;
+    inputCheckbox.dataset.checked = completedOnInput ? 0 : 1;
   }
 
   // Footer active btn
@@ -70,19 +77,7 @@ content.addEventListener("click", function (e) {
     const deleteIndex = +el.closest(".todo__delete-icon").dataset.index;
     data.splice(deleteIndex, 1);
 
-    updateTodoList(data);
-    setLocalStorage("data", data);
-  }
-
-  // Complete todo item
-  if (el.closest(".checkbox")) {
-    const completedIndex = +el.closest(".checkbox").dataset.index;
-    const completedTodo = data[completedIndex];
-    if (!completedTodo) return searchInput.classList.toggle("completed-todo");
-    completedTodo.checked = !completedTodo.checked;
-
-    updateTodoList(data);
-    setLocalStorage("data", data);
+    updateApp();
   }
 
   // Control buttons
@@ -94,28 +89,22 @@ content.addEventListener("click", function (e) {
   }
 });
 
-
-
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // Get input checkbox status
-  let inputStatus = checkboxInput.dataset.checked === "false" ? false : true;
-  getInputStatus();
-
+  console.log(data);
   // Add new todo data
   const newTodo = searchInput.value;
+  if (!newTodo) return;
+
   const obj = {
     title: newTodo,
-    checked: inputStatus ? true : false,
+    checked: completedOnInput ? true : false,
   };
-  data.push(obj);
+  data.unshift(obj);
 
-  // Update todo list view
-  updateTodoList(data);
-
-  // Send data local storage
-  setLocalStorage("data", data);
+  // Update todo list view && Send data local storage
+  updateApp();
 
   // Clean input
   searchInput.value = "";
