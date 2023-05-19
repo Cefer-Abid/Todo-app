@@ -153,6 +153,7 @@ body {
   align-items: center;
   user-select: none;
 }
+.checkbox__input:hover,
 .checkbox:hover {
   border-color: #3a7bfd74;
 }

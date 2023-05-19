@@ -1,3 +1,4 @@
+// Helper functions
 const iconMoon = document.querySelector(".icon--moon");
 const iconSun = document.querySelector(".icon--sun");
 const headerImgLightMode = document.querySelector(".header__img--light-mode");

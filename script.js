@@ -5,19 +5,17 @@ import { toggleDarkMode, updateTodoList, setLocalStorage, getLocalStorage, displ
 const content = document.querySelector(".content");
 const formEl = document.querySelector(".search-field");
 const searchInput = document.querySelector(".search-input");
-const checkboxInput = document.querySelector(".checkbox__input");
 const controlButton = document.querySelectorAll(".control-button");
 let darkMode, data, completedOnInput;
 
 const init = function () {
   // init value
-  darkMode = false;
-  completedOnInput = false;
+  darkMode = completedOnInput = false;
   data = [];
 
   // Get dark mode from local storage
-  const activeDarkMode = getLocalStorage("dark-mode");
-  toggleDarkMode(activeDarkMode);
+  darkMode = getLocalStorage("dark-mode");
+  toggleDarkMode(darkMode);
 
   // Get data from local storage
   const localData = getLocalStorage("data");
@@ -92,7 +90,6 @@ content.addEventListener("click", function (e) {
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  console.log(data);
   // Add new todo data
   const newTodo = searchInput.value;
   if (!newTodo) return;
